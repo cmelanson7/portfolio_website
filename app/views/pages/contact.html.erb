@@ -1,23 +1,23 @@
-<html>
+<html lang="en">
   <head>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Contact Page</title>
-
   </head>
-  <%= render 'shared/application_nav' %>
+  
+  <body class="text-center">
+
+    <%= render 'shared/application_nav' %>
 
     <main role="main" class="inner cover">
       <h1 class="cover-heading">Contact Page</h1>
-      <p><%= number_to_phone "5555555555" %></p>
+      <p class="lead">
+        <%= number_to_phone "5555555555" %>
+      </p>
       <p>This is going to be a sweet golf blog someday maybe</p>
-
-      <p><%= number_to_currency "12.12" %></p>
-
-      <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.4258169485734!2d-78.64392954898364!3d35.78947833153729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac5f4271c85cf7%3A0xc7aaf8e4534297e!2s614+Capital+Blvd%2C+Raleigh%2C+NC+27603!5e0!3m2!1sen!2sus!4v1526414404410" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></p>
-
-      <p><%= number_with_delimiter "12257865876287" %></p>
+      <p class="lead">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3236.4258169485734!2d-78.64392954898364!3d35.78947833153729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89ac5f4271c85cf7%3A0xc7aaf8e4534297e!2s614+Capital+Blvd%2C+Raleigh%2C+NC+27603!5e0!3m2!1sen!2sus!4v1526414404410" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </p>
     </main>
+  </body>
 </html>
