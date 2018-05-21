@@ -14,6 +14,10 @@
 # Configure Using Gemfile
 # gem 'pg'
 
+<% user = ENV.key?("POSTGRESQL_ADMIN_PASSWORD") ? "root" : ENV["POSTGRESQL_USER"] %>
+<% password = ENV.key?("POSTGRESQL_ADMIN_PASSWORD") ? ENV["POSTGRESQL_ADMIN_PASSWORD"] : ENV["POSTGRESQL_PASSWORD"] %>
+<% db_service = ENV.fetch("DATABASE_SERVICE_NAME","").upcase %>
+
 default: &default
   adapter: postgresql
   encoding: unicode
@@ -80,8 +84,9 @@ test:
 #
 production:
   <<: *default
-  database: DevcampPortfolio_production
-  username: DevcampPortfolio
-  password: <%= ENV['DEVCAMPPORTFOLIO_DATABASE_PASSWORD'] %>
-
-
+  pool: <%= ENV["POSTGRESQL_MAX_CONNECTIONS"] || 5 %>
+  username: <%= user %>
+  password: <%= password %>
+  host: <%= ENV["#{db_service}_SERVICE_HOST"] %>
+  port: <%= ENV["#{db_service}_SERVICE_PORT"] %>
+  database: <%= ENV["POSTGRESQL_DATABASE"] %>
